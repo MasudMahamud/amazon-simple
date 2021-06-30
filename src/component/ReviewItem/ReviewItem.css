@@ -1,0 +1,12 @@
+.review{
+    border-bottom: 1px solid tomato;
+    margin-bottom: 10px;
+    padding:10px;
+    background-color:rgba(216, 9, 9, 0.062)
+
+}
+
+.review .product-details img{
+    width:150px;
+
+}
