@@ -9,7 +9,8 @@ import Review from './component/Review/Review';
 import Inventory from './component/Inventory/Inventory';
 import NotFound from './component/NotFound/NotFound';
 import ProductDetails from './component/ProductDetails/ProductDetails';
-
+import Login from './component/Login/Login';
+import Shipment from './component/Shipment/Shipment';
 
 function App() {
   return (
@@ -28,6 +29,15 @@ function App() {
 
           <Route path="/inventory">
             <Inventory></Inventory>
+          </Route>
+
+          <Route path="/login">
+            <Login/>
+          </Route>
+
+
+          <Route path="/shipment">
+            <Shipment></Shipment>
           </Route>
 
           <Route exact path="/">
