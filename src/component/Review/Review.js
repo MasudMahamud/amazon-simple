@@ -15,9 +15,9 @@ const Review = () => {
 
     const handleProceedCheckout = () => {
         history.push('/shipment')
-    //     setCart([]);
-    //    processOrder();
-    //    setOrderPlaced(true);
+        //     setCart([]);
+        //    processOrder();
+        //    setOrderPlaced(true);
     }
 
     const handleRemoveProduct = (productKey) => {
@@ -27,41 +27,41 @@ const Review = () => {
         removeFromDatabaseCart(productKey);
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         //carts
         const saveCart = getDatabaseCart();
         const productKeys = Object.keys(saveCart);
-        const carTProduct = productKeys.map ( key => {
-           const product = fakeData.find( pd => pd.key === key);
-           product.quantity = saveCart[key];
-           return product;
+        const carTProduct = productKeys.map(key => {
+            const product = fakeData.find(pd => pd.key === key);
+            product.quantity = saveCart[key];
+            return product;
         });
         setCart(carTProduct)
-    },[]);
+    }, []);
 
-    let thankyou ;
-    if(orderPlaced){
-        thankyou = <img src={orderImages} alt=""/>
-    }         
+    let thankyou;
+    if (orderPlaced) {
+        thankyou = <img src={orderImages} alt="" />
+    }
 
     return (
         <div className="twin-container">
             <div className="product-container">
-            { 
-              cart.map ( pd => 
-              <ReviewItem 
-              key={pd.key}
-              handleRemoveProduct ={handleRemoveProduct}
-               product={pd} >    
-               </ReviewItem>)
-            }
-            {thankyou}
+                {
+                    cart.map(pd =>
+                        <ReviewItem
+                            key={pd.key}
+                            handleRemoveProduct={handleRemoveProduct}
+                            product={pd} >
+                        </ReviewItem>)
+                }
+                {thankyou}
             </div>
 
             <div className="cart-container">
                 <Cart cart={cart}>
                     <button onClick={handleProceedCheckout} className="addToCartBtn">
-                         Proceed Checkout
+                        Proceed Checkout
                     </button>
                 </Cart>
             </div>
